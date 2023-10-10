@@ -132,6 +132,7 @@ public class DefaultPlaneFacade implements PlaneFacade {
         flight.setPassedPoints(passedPoints);
         List<Flight> flights = airplane.getFlights();
         flights.add(flight);
+        airplane.setPosition(passedPoints.get(passedPoints.size() - 1));
         airplane.setFlights(flights);
         airplaneService.save(airplane);
     }

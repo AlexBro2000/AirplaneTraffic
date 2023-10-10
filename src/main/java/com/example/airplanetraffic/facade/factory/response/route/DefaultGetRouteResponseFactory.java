@@ -6,6 +6,7 @@ import com.example.airplanetraffic.model.entity.TemporaryPoint;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Component;
 
+import java.time.Duration;
 import java.util.List;
 
 @Component
@@ -22,6 +23,7 @@ public class DefaultGetRouteResponseFactory implements GetRouteResponseFactory {
                 .map(temporaryPoint -> temporaryPointDataFactory.setUpTemporaryPointData(temporaryPoint.getLatitude(),
                         temporaryPoint.getLongitude(), temporaryPoint.getFlightAltitude(), temporaryPoint.getFlightSpeed(),
                         temporaryPoint.getCourse())).toList());
+        response.setFlyingTime(Duration.ofSeconds(temporaryPoints.size()));
         return response;
     }
 }
