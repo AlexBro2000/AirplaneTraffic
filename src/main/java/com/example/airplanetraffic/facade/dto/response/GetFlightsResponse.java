@@ -9,11 +9,4 @@ import java.util.List;
 public class GetFlightsResponse {
 
     private List<FlightData> flights;
-
-    @Override
-    public String toString() {
-        return "GetFlightsResponse{" +
-                "flights=" + flights +
-                '}';
-    }
 }

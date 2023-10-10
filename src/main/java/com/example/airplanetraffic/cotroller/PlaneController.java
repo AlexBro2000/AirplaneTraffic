@@ -25,6 +25,7 @@ public class PlaneController {
     }
 
     @GetMapping("/calculateRoute")
+    @ResponseBody
     public ResponseEntity<GetRouteResponse> calculateRoute(@RequestBody CalculateRouteRequest routeRequest) {
         return ResponseEntity.ok(planeFacade.getRoute(routeRequest.getPlaneId(), routeRequest.getWayPoints()));
     }

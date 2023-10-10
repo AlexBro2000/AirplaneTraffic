@@ -6,7 +6,6 @@ import com.example.airplanetraffic.model.entity.Flight;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Component;
 
-import java.time.Duration;
 import java.util.List;
 
 @Component
@@ -21,8 +20,7 @@ public class DefaultGetFlightsResponseFactory implements GetFlightsResponseFacto
         getFlightsResponse.setFlights(flights
                 .stream()
                 .map(flight -> flightDataFactory.setUpFlightResponse(flight.getNumber(),
-                        flight.getPassedPoints(), flight.getWayPoints(), Duration
-                                .ofSeconds(flight.getPassedPoints().size()))).toList());
+                        flight.getPassedPoints(), flight.getWayPoints(), flight.getPassedPoints().size() + " s")).toList());
         return getFlightsResponse;
     }
 }

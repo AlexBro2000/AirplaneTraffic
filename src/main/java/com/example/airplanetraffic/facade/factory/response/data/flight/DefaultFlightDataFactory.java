@@ -8,7 +8,6 @@ import com.example.airplanetraffic.model.entity.WayPoint;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Component;
 
-import java.time.Duration;
 import java.util.List;
 
 @Component
@@ -21,7 +20,7 @@ public class DefaultFlightDataFactory implements FlightDataFactory {
 
     @Override
     public FlightData setUpFlightResponse(Long number, List<TemporaryPoint> passedPoints, List<WayPoint> wayPoints,
-                                          Duration flyingTime) {
+                                          String flyingTime) {
         FlightData flightData = new FlightData();
 
         flightData.setNumber(number);
